@@ -4,9 +4,8 @@ import { profileConfig } from '../config'
 ---
 
 <div class="card-base max-w-[var(--page-width)] min-h-[4.5rem] rounded-b-none mx-auto flex items-center px-6">
-    <div class="transition text-50 text-sm">
-        © 2024 {profileConfig.name}. Some rights reserved.
-        <br>
-        Using modified <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a> theme for <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build/">Astro</a>.
+    <div class="transition flex flex-wrap justify-between w-full text-50 text-sm">
+        <div>© 2024 <span class="font-bold">{profileConfig.name}</span>. Some rights reserved.</div>
+       <div> Using modified <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a> theme for <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build/">Astro</a>.</div>
     </div>
 </div>
