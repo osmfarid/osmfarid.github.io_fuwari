@@ -21,7 +21,7 @@ Welcome to my personal development blog/diary/notebook (call it what you like)! 
 
 Currently working at [R.I.S.K. Company](https://risk.az/products/panda), on a project focused on bringing aeronautical data to life on maps using powerful tools like OpenLayers and Cesium, I'll document my explorations, challenges, and triumphs as I navigate the world of geospatial visualization.
 
-:::note[Lets learn something new!]
+:::note[About my path in Angular]
 I'm diving into the exciting world of Angular Signals alongside Angular 17 and NgRX at work! Plus, I'm exploring the cutting-edge possibilities of a zoneless approach!
 :::
 
