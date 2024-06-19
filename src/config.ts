@@ -45,15 +45,9 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
   avatar: 'assets/images/avatar2.jpg', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
   name: 'Farid Osmanli',
-  bio: 'Angular developer, tech enthusiast, and lifelong learner',
+  bio: 'Angular developer, tech enthusiast',
   links: [
-    // {
-    //   name: 'Twitter',
-    //   icon: 'fa6-brands:twitter', // Visit https://icones.js.org/ for icon codes
-    //   // You will need to install the corresponding icon set if it's not already included
-    //   // `pnpm add @iconify-json/<icon-set-name>`
-    //   url: 'https://twitter.com',
-    // },
+    // Visit https://icones.js.org/ for icon codes
     {
       name: 'GitHub',
       icon: 'fa6-brands:github',
@@ -64,11 +58,15 @@ export const profileConfig: ProfileConfig = {
       icon: 'fa6-brands:linkedin',
       url: 'https://www.linkedin.com/in/osmfarid',
     },
-
+    {
+      name: 'Telegram',
+      icon: 'fa6-brands:telegram',
+      url: 'https://t.me/osmfarid',
+    },
     {
       name: 'Mail',
       icon: 'fa6-solid:envelope',
-      url: 'mailto:johndoe@fakeemail.com',
+      url: 'mailto:osmfarid@gmail.com',
     },
   ],
 }

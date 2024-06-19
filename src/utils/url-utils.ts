@@ -9,15 +9,15 @@ export function pathsEqual(path1: string, path2: string) {
 
 function joinUrl(...parts: string[]): string {
   const joined = parts.join('/')
-  return joined.replace(/\/+/g, '/');
+  return joined.replace(/\/+/g, '/')
 }
 
-export function getPostUrlBySlug(slug: string): string | null {
+export function getPostUrlBySlug(slug: string | undefined): string | null {
   if (!slug) return null
   return url(`/posts/${slug}/`)
 }
 
-export function getCategoryUrl(category: string): string | null {
+export function getCategoryUrl(category: string | undefined): string | null {
   if (!category) return null
   if (category === i18n(i18nKey.uncategorized))
     return url('/archive/category/uncategorized/')
