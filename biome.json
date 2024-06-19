@@ -4,12 +4,12 @@
   "files": { "ignoreUnknown": true },
   "organizeImports": {
     "enabled": true,
-    "ignore": ["*.astro", "dist", "node_modules"]
+    "ignore": ["*.svelte", "*.astro", "dist", "node_modules"]
   },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
-    "ignore": ["*.astro", "dist", "node_modules"],
+    "ignore": ["*.svelte", "*.astro", "dist", "node_modules"],
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 80
@@ -36,7 +36,7 @@
     }
   },
   "linter": {
-    "ignore": ["*.astro", "dist", "node_modules"],
+    "ignore": ["*.svelte", "*.astro", "dist", "node_modules"],
     "rules": {
       "a11y": {
         "recommended": true

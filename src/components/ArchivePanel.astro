@@ -5,6 +5,10 @@ import { i18n } from '../i18n/translation'
 import { getSortedPosts } from '../utils/content-utils'
 import { getPostUrlBySlug } from '../utils/url-utils'
 
+interface PostGroup {
+  year: string
+  posts: any
+}
 interface Props {
   keyword: string
   tags: string[]

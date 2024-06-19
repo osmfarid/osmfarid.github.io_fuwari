@@ -18,5 +18,8 @@
     "quickfix.biome": "always",
     "source.organizeImports.biome": "always"
   },
+  // "[svelte]": {
+  //   "editor.defaultFormatter": "svelte.svelte-vscode"
+  // },
   "frontMatter.dashboard.openOnStart": false
 }
