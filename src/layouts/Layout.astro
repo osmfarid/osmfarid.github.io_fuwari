@@ -106,31 +106,6 @@ const siteLang = siteConfig.lang.replace('_', '-')
 				  media={favicon.theme && `(prefers-color-scheme: ${favicon.theme})`}
 			/>
 		))}
-		<script>
-			if ('serviceWorker' in navigator) {
-			  navigator.serviceWorker.getRegistrations().then(function(registrations) {
-			
-				// Alert before starting
-				alert('The site is updating. Please wait a moment...');
-			
-				let intervalId = setInterval(() => {
-				  if (registrations.length === 0) {
-					clearInterval(intervalId); // Stop interval when all registrations are gone
-			
-					// Optional: Redirect or reload after clearing cache
-					// window.location.reload();
-			
-					// Alert after finishing
-					alert('Update complete! You may need to refresh the page.');
-				  }
-				}, 1000); // Check every 1000 milliseconds (1 second)
-			
-				for (let registration of registrations) {
-				  registration.unregister();
-				}
-			  });
-			}
-		</script>
 		<!-- Set the theme before the page is rendered to avoid a flash -->
 		<script define:vars={{DEFAULT_THEME: DEFAULT_THEME, LIGHT_MODE: LIGHT_MODE, DARK_MODE: DARK_MODE, AUTO_MODE: AUTO_MODE}}>
 			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
