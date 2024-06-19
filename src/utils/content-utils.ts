@@ -1,6 +1,6 @@
+import { getCollection } from 'astro:content'
 import I18nKey from '@i18n/i18nKey'
 import { i18n } from '@i18n/translation'
-import { getCollection } from 'astro:content'
 
 export async function getSortedPosts() {
   const allBlogPosts = await getCollection('posts', ({ data }) => {
@@ -36,6 +36,9 @@ export async function getTagList(): Promise<Tag[]> {
 
   const countMap: { [key: string]: number } = {}
   allBlogPosts.map(post => {
+    if (!post.data.tags) {
+      return
+    }
     post.data.tags.map((tag: string) => {
       if (!countMap[tag]) countMap[tag] = 0
       countMap[tag]++

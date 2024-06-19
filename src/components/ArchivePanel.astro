@@ -5,12 +5,21 @@ import { i18n } from '../i18n/translation'
 import { getSortedPosts } from '../utils/content-utils'
 import { getPostUrlBySlug } from '../utils/url-utils'
 
-interface Props {
-  keyword: string
-  tags: string[]
-  categories: string[]
+type Posts = Awaited<ReturnType<typeof getSortedPosts>>
+
+interface PostGroup {
+  year: number
+  posts: Posts
 }
-const { keyword, tags, categories } = Astro.props
+
+type PostsByYearMap = Map<number, Posts>
+
+interface Props {
+  tags?: string[]
+  categories?: string[]
+}
+
+const { tags, categories } = Astro.props
 
 let posts = await getSortedPosts()
 
@@ -30,21 +39,23 @@ if (Array.isArray(categories) && categories.length > 0) {
   )
 }
 
-const groups = (() => {
+const groups: PostGroup[] = (() => {
   const groupedPosts = posts.reduce((grouped, post) => {
     const year = post.data.published.getFullYear()
-    if (!grouped[year]) {
-      grouped[year] = []
+    if (!grouped.has(year)) {
+      grouped.set(year, [])
     }
-    grouped[year].push(post)
+    grouped.get(year)?.push(post)
     return grouped
-  }, {})
+  }, new Map<number, Posts>())
 
-  // convert the object to an array
-  const groupedPostsArray = Object.keys(groupedPosts).map(key => ({
-    year: key,
-    posts: groupedPosts[key],
-  }))
+  // convert the map to an array
+  const groupedPostsArray: PostGroup[] = Array.from(groupedPosts).map(
+    ([year, posts]) => ({
+      year,
+      posts,
+    }),
+  )
 
   // sort years by latest first
   groupedPostsArray.sort((a, b) => b.year - a.year)
@@ -103,10 +114,10 @@ function formatTag(tag: string[]) {
                                     {post.data.title}
                             </div>
                             <!-- tag list -->
-                            {/* <div class="hidden md:block md:w-[15%] text-left text-sm transition
+                            <div class="hidden md:block md:w-[15%] text-left text-sm transition
                             whitespace-nowrap overflow-ellipsis overflow-hidden
                             text-30"
-                            >{formatTag(post.data.tags)}</div> */}
+                            >{formatTag(post.data.tags!)}</div>
                         </div>
                     </a>
                 ))}

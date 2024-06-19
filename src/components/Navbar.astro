@@ -9,7 +9,7 @@ import { LinkPreset, type NavBarLink } from '../types/config'
 import { navBarConfig, siteConfig } from '../config'
 import { LinkPresets } from '../constants/link-presets'
 import { url } from '../utils/url-utils'
-import { logo } from './logo'
+import { logo } from '../constants/logo'
 
 const className = Astro.props.class
 
@@ -113,13 +113,13 @@ document.addEventListener('astro:after-swap', () => {
 
 {import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
 async function loadPagefind() {
-    const pagefind = await import(scriptUrl)
+    const pagefind = await import(scriptUrl);
     await pagefind.options({
         'excerptLength': 20
-    })
+        })
     pagefind.init()
     window.pagefind = pagefind
-    pagefind.search('')     // speed up the first search
+    // pagefind.search('')     // speed up the first search
 }
 loadPagefind()
 </script>}
