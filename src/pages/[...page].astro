@@ -1,13 +1,25 @@
 ---
 import MainGridLayout from '../layouts/MainGridLayout.astro'
-import PostCard from '../components/PostCard.astro'
+// import PostCard from '../components/PostCard.astro'
 import Pagination from '../components/control/Pagination.astro'
 import { getSortedPosts } from '../utils/content-utils'
-import { getPostUrlBySlug } from '../utils/url-utils'
+// import { getPostUrlBySlug } from '../utils/url-utils'
 import { PAGE_SIZE } from '../constants/constants'
 import PostPage from '../components/PostPage.astro'
+import type { Page } from 'astro'
 
-export async function getStaticPaths({ paginate }) {
+interface Props {
+  page: Page
+}
+
+interface Paginate {
+  paginate: (
+    allBlogPosts: any,
+    options: { pageSize: number },
+  ) => Promise<{ paths: { params: { slug: string } }[]; fallback: boolean }>
+}
+
+export async function getStaticPaths({ paginate }: Paginate) {
   const allBlogPosts = await getSortedPosts()
   return paginate(allBlogPosts, { pageSize: PAGE_SIZE })
 }

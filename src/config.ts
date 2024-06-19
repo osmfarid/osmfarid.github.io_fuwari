@@ -55,14 +55,20 @@ export const profileConfig: ProfileConfig = {
     //   url: 'https://twitter.com',
     // },
     {
+      name: 'GitHub',
+      icon: 'fa6-brands:github',
+      url: 'https://github.com/osmfarid',
+    },
+    {
       name: 'LinkedIn',
       icon: 'fa6-brands:linkedin',
       url: 'https://www.linkedin.com/in/osmfarid',
     },
+
     {
-      name: 'GitHub',
-      icon: 'fa6-brands:github',
-      url: 'https://github.com/osmfarid',
+      name: 'Mail',
+      icon: 'fa6-solid:envelope',
+      url: 'mailto:johndoe@fakeemail.com',
     },
   ],
 }
