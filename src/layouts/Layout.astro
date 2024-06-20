@@ -17,6 +17,7 @@ import {
   DEFAULT_THEME,
 } from '../constants/constants'
 import { url } from '../utils/url-utils'
+import GoatCounter from '@components/misc/GoatCounter.astro'
 
 interface Props {
   title: string
@@ -124,6 +125,7 @@ const siteLang = siteConfig.lang.replace('_', '-')
 					}
 			}
 		</script>
+		<GoatCounter/>
 
 		<slot name="head"></slot>
 
@@ -132,12 +134,6 @@ const siteLang = siteConfig.lang.replace('_', '-')
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
 		<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
-
-		<script 
-			data-goatcounter="https://osmfarid-blog.goatcounter.com/count"
-        	async 
-			src="//gc.zgo.at/count.js">
-		</script>
 	</head>
 	<body class=" min-h-screen transition " class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
 		<ConfigCarrier></ConfigCarrier>
