@@ -13,6 +13,7 @@ import PostMetadata from '../../components/PostMeta.astro'
 import ImageWrapper from '../../components/misc/ImageWrapper.astro'
 import { profileConfig } from '../../config'
 import { formatDateToFancy } from '../../utils/date-utils'
+import Giscus from '@components/widget/Giscus.astro'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts', ({ data }) => {
@@ -126,6 +127,7 @@ const jsonLd = {
             </div>}
         </a>
     </div>
+    <Giscus/>
 
 </MainGridLayout>
 

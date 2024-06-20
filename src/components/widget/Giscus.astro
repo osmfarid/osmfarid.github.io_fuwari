@@ -1,0 +1,33 @@
+<section class="giscus mx-auto mt-10 w-full"></section>
+
+<script
+  src="https://giscus.app/client.js"
+  data-repo="osmfarid/osmfarid.github.io"
+  data-repo-id="R_kgDOMLJy0Q"
+  data-category="Comments"
+  data-category-id="DIC_kwDOMLJy0c4CgOA9"
+  data-mapping="og:title"
+  data-strict="1"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="transparent_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+
+<script>
+    function handleMessage(event: MessageEvent) {
+        if (event.origin !== 'https://giscus.app') return;
+        if (!(typeof event.data === 'object' && event.data.giscus)) return;
+
+        const giscusData = event.data.giscus;
+        console.log(giscusData)
+        // Do whatever you want with it, e.g. `console.log(giscusData)`.
+        // You'll need to make sure that `giscusData` contains the message you're
+        // expecting, e.g. by using `if ('discussion' in giscusData)`.
+    }
+    window.addEventListener('message', handleMessage);
+</script>
