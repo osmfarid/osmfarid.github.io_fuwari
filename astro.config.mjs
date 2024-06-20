@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind'
 import swup from '@swup/astro'
 import Compress from 'astro-compress'
 import icon from 'astro-icon'
+import pagefind from 'astro-pagefind'
 import { defineConfig } from 'astro/config'
 import Color from 'colorjs.io'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -58,6 +59,7 @@ export default defineConfig({
     }),
     svelte(),
     sitemap(),
+    pagefind(),
   ],
   markdown: {
     remarkPlugins: [

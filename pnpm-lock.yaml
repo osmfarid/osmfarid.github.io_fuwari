@@ -41,6 +41,9 @@ importers:
       astro-icon:
         specifier: 1.1.0
         version: 1.1.0
+      astro-pagefind:
+        specifier: ^1.5.0
+        version: 1.5.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5))
       colorjs.io:
         specifier: ^0.5.0
         version: 0.5.0
@@ -1265,6 +1268,9 @@ packages:
     cpu: [x64]
     os: [darwin]
 
+  '@pagefind/default-ui@1.1.0':
+    resolution: {integrity: sha512-+XiAJAK++C64nQcD7s3Prdmd5S92lT05fwjOxm0L1jj80jbL+tmvcqkkFnPpoqhnicIPgcAX/Y5W0HRZnBt35w==}
+
   '@pagefind/linux-arm64@1.1.0':
     resolution: {integrity: sha512-8zjYCa2BtNEL7KnXtysPtBELCyv5DSQ4yHeK/nsEq6w4ToAMTBl0K06khqxdSGgjMSwwrxvLzq3so0LC5Q14dA==}
     cpu: [arm64]
@@ -1286,6 +1292,9 @@ packages:
 
   '@playform/pipe@0.0.6':
     resolution: {integrity: sha512-dsW6Dyq9yNLOSw0iV7iD0P13pqmKFk2YjlGzgJOM7Qnl05Vdv0beFz0MquOma7rCE+Kg4njCPNAQUDsSss8xZw==}
+
+  '@polka/url@1.0.0-next.25':
+    resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
 
   '@rollup/plugin-alias@3.1.9':
     resolution: {integrity: sha512-QI5fsEvm9bDzt32k39wpOwZhVzRcL5ydcffUHMyLVaVaLeC70I8TJZ17F1z1eMoLu4E/UOcH9BWVkKpIKdrfiw==}
@@ -1752,6 +1761,11 @@ packages:
 
   astro-icon@1.1.0:
     resolution: {integrity: sha512-Nksc09p7UuHeMcPNS9w1pKqRw3+wEmmh0A3FJW+FNXvqaeWI4RLvD1MCWErpY3Z5Cvad317rvLdik/Hg8GEk8Q==}
+
+  astro-pagefind@1.5.0:
+    resolution: {integrity: sha512-CN7Afe9qW640U1qliCQMXN259Dl6VPUnl8FneLfKE7STV4HLiif4PbNZejylC6yXYyP6uyNVDHNOfJfBBW5h6A==}
+    peerDependencies:
+      astro: ^2.0.4 || ^3.0.0 || ^4.0.0
 
   astro@4.10.3:
     resolution: {integrity: sha512-TWCJM+Vg+y0UoEz/H75rfp/u2N8yxeQQ2UrU9+fMcbjlzQJtGGDq3ApdundqPZgAuCryRuJnrKytStMZCFnlvQ==}
@@ -4105,6 +4119,10 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
+  sirv@2.0.4:
+    resolution: {integrity: sha512-94Bdh3cC2PKrbgSOUqTiGPWVZeSiXfKOVZNJniWoqrWrRkB1CJzBU3NEbiTsPcYy1lDsANA/THzS+9WBiy5nfQ==}
+    engines: {node: '>= 10'}
+
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
@@ -4325,6 +4343,10 @@ packages:
   tosource@2.0.0-alpha.3:
     resolution: {integrity: sha512-KAB2lrSS48y91MzFPFuDg4hLbvDiyTjOVgaK7Erw+5AmZXNq4sFRVn8r6yxSLuNs15PaokrDRpS61ERY9uZOug==}
     engines: {node: '>=10'}
+
+  totalist@3.0.1:
+    resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
+    engines: {node: '>=6'}
 
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
@@ -5996,6 +6018,8 @@ snapshots:
   '@pagefind/darwin-x64@1.1.0':
     optional: true
 
+  '@pagefind/default-ui@1.1.0': {}
+
   '@pagefind/linux-arm64@1.1.0':
     optional: true
 
@@ -6013,6 +6037,8 @@ snapshots:
       '@types/node': 20.14.2
       deepmerge-ts: 7.0.3
       fast-glob: 3.3.2
+
+  '@polka/url@1.0.0-next.25': {}
 
   '@rollup/plugin-alias@3.1.9(rollup@2.79.1)':
     dependencies:
@@ -6583,6 +6609,13 @@ snapshots:
       '@iconify/utils': 2.1.24
     transitivePeerDependencies:
       - supports-color
+
+  astro-pagefind@1.5.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)):
+    dependencies:
+      '@pagefind/default-ui': 1.1.0
+      astro: 4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)
+      pagefind: 1.1.0
+      sirv: 2.0.4
 
   astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5):
     dependencies:
@@ -9522,6 +9555,12 @@ snapshots:
     dependencies:
       is-arrayish: 0.3.2
 
+  sirv@2.0.4:
+    dependencies:
+      '@polka/url': 1.0.0-next.25
+      mrmime: 2.0.0
+      totalist: 3.0.1
+
   sisteransi@1.0.5: {}
 
   sitemap@7.1.2:
@@ -9809,6 +9848,8 @@ snapshots:
       is-number: 7.0.0
 
   tosource@2.0.0-alpha.3: {}
+
+  totalist@3.0.1: {}
 
   trim-lines@3.0.1: {}
 

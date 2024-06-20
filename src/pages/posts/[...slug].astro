@@ -44,7 +44,19 @@ const jsonLd = {
   datePublished: formatDateToFancy(entry.data.published),
   // TODO include cover image here
 }
+let coverImageSrc;
+if(entry.data.image){
+    const files = import.meta.glob<ImageMetadata>('../../**', {
+    import: 'default',
+  })
+  let normalizedPath = path
+    .normalize(path.join('../../', path.join("content/posts/", getDir(entry.id)), entry.data.image))
+    .replace(/\\/g, '/')
+  const img = await files[normalizedPath]()
+  coverImageSrc = img.src
+}
 ---
+
 <MainGridLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description}>
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
@@ -69,8 +81,9 @@ const jsonLd = {
 
             <!-- title -->
             <div class="relative onload-animation">
+                <!-- data-pagefind-body data-pagefind-weight="10" data-pagefind-meta="title" -->
                 <div
-                    data-pagefind-body data-pagefind-weight="10" data-pagefind-meta="title"
+                    data-pagefind-meta="title"
                     class="transition w-full block font-bold mb-3
                     text-3xl md:text-[2.5rem]/[2.75rem]
                     text-black/90 dark:text-white/90
@@ -95,13 +108,19 @@ const jsonLd = {
             <!-- always show cover as long as it has one -->
 
             {entry.data.image &&
-                <ImageWrapper src={entry.data.image} basePath={path.join("content/posts/", getDir(entry.id))} class="mb-8 rounded-xl banner-container onload-animation"/>
+                <section data-pagefind-meta={`image:${coverImageSrc}`}>
+                    <ImageWrapper src={entry.data.image} basePath={path.join("content/posts/", getDir(entry.id))} class="mb-8 rounded-xl banner-container onload-animation"/>
+                </section>
+                
             }
 
-
-            <Markdown class="mb-6 markdown-content onload-animation">
-                <Content />
-            </Markdown>
+            
+                <Markdown class="mb-6 markdown-content onload-animation">
+                    <article data-pagefind-body data-pagefind-weight="10">
+                        <Content />
+                    </article>
+                </Markdown>
+            
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
 
