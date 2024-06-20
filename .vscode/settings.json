@@ -18,8 +18,11 @@
     "quickfix.biome": "always",
     "source.organizeImports.biome": "always"
   },
-  // "[svelte]": {
-  //   "editor.defaultFormatter": "svelte.svelte-vscode"
-  // },
-  "frontMatter.dashboard.openOnStart": false
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "frontMatter.dashboard.openOnStart": false,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
 }
