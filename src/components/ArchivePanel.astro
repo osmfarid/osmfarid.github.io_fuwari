@@ -12,8 +12,6 @@ interface PostGroup {
   posts: Posts
 }
 
-type PostsByYearMap = Map<number, Posts>
-
 interface Props {
   tags?: string[]
   categories?: string[]
@@ -114,10 +112,11 @@ function formatTag(tag: string[]) {
                                     {post.data.title}
                             </div>
                             <!-- tag list -->
-                            <div class="hidden md:block md:w-[15%] text-left text-sm transition
+                            {post.data?.tags && <div class="hidden md:block md:w-[15%] text-left text-sm transition
                             whitespace-nowrap overflow-ellipsis overflow-hidden
                             text-30"
-                            >{formatTag(post.data.tags!)}</div>
+                            >{formatTag(post.data.tags)}</div>}
+                            
                         </div>
                     </a>
                 ))}

@@ -1,7 +1,6 @@
 ---
 import path from 'path'
 interface Props {
-  id?: string
   src: string
   class?: string
   alt?: string
@@ -11,7 +10,7 @@ interface Props {
 import { Image } from 'astro:assets'
 import { url } from '../../utils/url-utils'
 
-const { id, src, alt, position = 'center', basePath = '/' } = Astro.props
+const { src, alt, position = 'center', basePath = '/' } = Astro.props
 const className = Astro.props.class
 
 const isLocal = !(

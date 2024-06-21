@@ -29,29 +29,22 @@ let { title, banner, description } = Astro.props
 
 const isHomePage = pathsEqual(Astro.url.pathname, '/')
 
-const testPathName = Astro.url.pathname
-
-const anim = {
-  old: {
-    name: 'fadeIn',
-    duration: '4s',
-    easing: 'linear',
-    fillMode: 'forwards',
-    mixBlendMode: 'normal',
-  },
-  new: {
-    name: 'fadeOut',
-    duration: '4s',
-    easing: 'linear',
-    fillMode: 'backwards',
-    mixBlendMode: 'normal',
-  },
-}
-
-const myFade = {
-  forwards: anim,
-  backwards: anim,
-}
+// const anim = {
+//   old: {
+//     name: 'fadeIn',
+//     duration: '4s',
+//     easing: 'linear',
+//     fillMode: 'forwards',
+//     mixBlendMode: 'normal',
+//   },
+//   new: {
+//     name: 'fadeOut',
+//     duration: '4s',
+//     easing: 'linear',
+//     fillMode: 'backwards',
+//     mixBlendMode: 'normal',
+//   },
+// }
 
 // defines global css variables
 // why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
@@ -108,7 +101,7 @@ const siteLang = siteConfig.lang.replace('_', '-')
 			/>
 		))}
 		<!-- Set the theme before the page is rendered to avoid a flash -->
-		<script define:vars={{DEFAULT_THEME: DEFAULT_THEME, LIGHT_MODE: LIGHT_MODE, DARK_MODE: DARK_MODE, AUTO_MODE: AUTO_MODE}}>
+		<script is:inline define:vars={{DEFAULT_THEME: DEFAULT_THEME, LIGHT_MODE: LIGHT_MODE, DARK_MODE: DARK_MODE, AUTO_MODE: AUTO_MODE}}>
 			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
 			switch (theme) {
 				case LIGHT_MODE:
@@ -139,7 +132,7 @@ const siteLang = siteConfig.lang.replace('_', '-')
 		<ConfigCarrier></ConfigCarrier>
 		<GlobalStyles>
 		<div id="banner-wrapper" class="absolute w-full">
-			<ImageWrapper id="boxtest" alt="Banner image of the blog" class:list={["object-center object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
+			<ImageWrapper alt="Banner image of the blog" class:list={["object-center object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
 					  src={siteConfig.banner.src}
 			>
 			</ImageWrapper>
@@ -185,10 +178,7 @@ const siteLang = siteConfig.lang.replace('_', '-')
 <script>
 import 'overlayscrollbars/overlayscrollbars.css';
 import {
-	OverlayScrollbars,
-	ScrollbarsHidingPlugin,
-	SizeObserverPlugin,
-	ClickScrollPlugin
+	OverlayScrollbars
 } from 'overlayscrollbars';
 import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
 
@@ -208,31 +198,31 @@ import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
 /* TODO This is a temporary solution for style flicker issue when the transition is activated */
 /* issue link: https://github.com/withastro/astro/issues/8711, the solution get from here too */
 /* update: fixed in Astro 3.2.4 */
-function disableAnimation() {
-	const css = document.createElement('style')
-	css.appendChild(
-		document.createTextNode(
-			`*{
-              -webkit-transition:none!important;
-              -moz-transition:none!important;
-              -o-transition:none!important;
-              -ms-transition:none!important;
-              transition:none!important
-              }`
-		)
-	)
-	document.head.appendChild(css)
+// function disableAnimation() {
+// 	const css = document.createElement('style')
+// 	css.appendChild(
+// 		document.createTextNode(
+// 			`*{
+//               -webkit-transition:none!important;
+//               -moz-transition:none!important;
+//               -o-transition:none!important;
+//               -ms-transition:none!important;
+//               transition:none!important
+//               }`
+// 		)
+// 	)
+// 	document.head.appendChild(css)
 
-	return () => {
-		// Force restyle
-		;(() => window.getComputedStyle(document.body))()
+// 	return () => {
+// 		// Force restyle
+// 		;(() => window.getComputedStyle(document.body))()
 
-		// Wait for next tick before removing
-		setTimeout(() => {
-			document.head.removeChild(css)
-		}, 1)
-	}
-}
+// 		// Wait for next tick before removing
+// 		setTimeout(() => {
+// 			document.head.removeChild(css)
+// 		}, 1)
+// 	}
+// }
 
 function setClickOutsideToClose(panel: string, ignores: string[]) {
 	document.addEventListener("click", event => {

@@ -17,7 +17,6 @@ interface Props {
   category: string
   image: string
   description: string
-  words?: number
   draft: boolean
   style: string
 }
@@ -30,7 +29,6 @@ const {
   category,
   image,
   description,
-  words,
   style,
 } = Astro.props
 const className = Astro.props.class

@@ -2,7 +2,8 @@
 import {goatCounterConfig} from '../../config'
 const goatCounterCode = `https://${goatCounterConfig.id}.goatcounter.com/count`;
 ---
-<script 
+<script
+  is:inline
   data-goatcounter={goatCounterCode}
   async 
   src="//gc.zgo.at/count.js"
