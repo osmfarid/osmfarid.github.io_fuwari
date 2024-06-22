@@ -1,0 +1,34 @@
+---
+import ImageWrapper from '@components/misc/ImageWrapper.astro'
+import { siteConfig } from '@/config'
+
+interface Props {
+  banner?: string
+}
+
+let { banner } = Astro.props
+
+if (!banner || typeof banner !== 'string' || banner.trim() === '') {
+  banner = siteConfig.banner.src
+}
+
+// TODO don't use post cover as banner for now
+banner = siteConfig.banner.src
+---
+
+<div id="banner-wrapper" class="absolute w-full">
+    <ImageWrapper alt="Banner image of the blog" class:list={["object-center object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
+              src={siteConfig.banner.src}
+    >
+    </ImageWrapper>
+</div>
+
+<!-- <style is:global lang="stylus">
+    #banner-wrapper
+        top: 0
+        opacity: 1
+    .banner-closed
+        #banner-wrapper
+            top: -120px
+            opacity: 0
+</style> -->

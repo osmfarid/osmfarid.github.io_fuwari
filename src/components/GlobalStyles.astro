@@ -183,6 +183,28 @@ color_set({
 @tailwind utilities;
 
 @layer components {
+  /* TODO: temporarily make banner height same for all pages since I cannot make the transition feel good
+        I want to make the height transition parallel with the content transition instead of blocking it
+      */
+
+      /*
+      .enable-banner.is-home #banner-wrapper {
+        @apply h-[var(--banner-height)] md:h-[var(--banner-height-home)]
+      }
+      */
+      .enable-banner #banner-wrapper {
+        @apply h-[var(--banner-height)]
+      }
+
+      /*
+      .enable-banner.is-home #top-row {
+        @apply h-[calc(var(--banner-height)_-_4.5rem)] md:h-[calc(var(--banner-height-home)_-_4.5rem)]
+      }
+      */
+      .enable-banner #top-row {
+        @apply h-[calc(var(--banner-height)_-_4.5rem)]
+      }
+
     .card-base {
         @apply rounded-[var(--radius-large)] overflow-hidden bg-[var(--card-bg)] transition;
     }
@@ -255,6 +277,9 @@ color_set({
 
 @keyframes fade-in-up {
     0% {
+        opacity: 0;
+    }
+    1% {
         transform: translateY(2rem);
         opacity: 0;
     }

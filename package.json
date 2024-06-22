@@ -22,7 +22,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.0.20",
     "@fontsource/roboto": "^5.0.12",
     "@swup/astro": "^1.4.0",
-    "astro": "^4.4.15",
+    "astro": "^4.11.0",
     "astro-compress": "^2.2.15",
     "astro-icon": "1.1.0",
     "astro-pagefind": "^1.5.0",
@@ -44,7 +44,7 @@
     "sharp": "^0.33.4",
     "svelte": "^4.2.12",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.2",
+    "typescript": "^5.5.2",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
@@ -57,6 +57,7 @@
     "@iconify/svelte": "^3.1.6",
     "@rollup/plugin-yaml": "^4.1.2",
     "@tailwindcss/typography": "^0.5.10",
+    "@types/eslint": "^8.56.10",
     "@types/markdown-it": "^14.0.0",
     "@types/mdast": "^4.0.3",
     "@types/sanitize-html": "^2.11.0",

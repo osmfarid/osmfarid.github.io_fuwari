@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: ^0.5.9
-        version: 0.5.10(typescript@5.4.5)
+        version: 0.5.10(typescript@5.5.2)
       '@astrojs/rss':
         specifier: ^4.0.5
         version: 4.0.6
@@ -19,10 +19,10 @@ importers:
         version: 3.1.6
       '@astrojs/svelte':
         specifier: ^5.2.0
-        version: 5.6.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5))(svelte@4.2.18)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1))
+        version: 5.6.0(astro@4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2))(svelte@4.2.18)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1))
       '@astrojs/tailwind':
         specifier: ^5.1.0
-        version: 5.1.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5))(tailwindcss@3.4.4)
+        version: 5.1.0(astro@4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2))(tailwindcss@3.4.4)
       '@fontsource-variable/jetbrains-mono':
         specifier: ^5.0.20
         version: 5.0.21
@@ -33,17 +33,17 @@ importers:
         specifier: ^1.4.0
         version: 1.4.1(@types/babel__core@7.20.5)
       astro:
-        specifier: ^4.4.15
-        version: 4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)
+        specifier: ^4.11.0
+        version: 4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2)
       astro-compress:
         specifier: ^2.2.15
-        version: 2.2.28(@types/node@20.14.5)(stylus@0.63.0)(typescript@5.4.5)
+        version: 2.2.28(@types/node@20.14.5)(stylus@0.63.0)(typescript@5.5.2)
       astro-icon:
         specifier: 1.1.0
         version: 1.1.0
       astro-pagefind:
         specifier: ^1.5.0
-        version: 1.5.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5))
+        version: 1.5.0(astro@4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2))
       colorjs.io:
         specifier: ^0.5.0
         version: 0.5.0
@@ -99,8 +99,8 @@ importers:
         specifier: ^3.4.1
         version: 3.4.4
       typescript:
-        specifier: ^5.4.2
-        version: 5.4.5
+        specifier: ^5.5.2
+        version: 5.5.2
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
@@ -132,6 +132,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.10
         version: 0.5.13(tailwindcss@3.4.4)
+      '@types/eslint':
+        specifier: ^8.56.10
+        version: 8.56.10
       '@types/markdown-it':
         specifier: ^14.0.0
         version: 14.1.1
@@ -1586,6 +1589,9 @@ packages:
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
+  '@types/eslint@8.56.10':
+    resolution: {integrity: sha512-Shavhk87gCtY2fhXDctcfS3e6FdxWkCx1iUZ9eEUbh7rTqlZT0/IzOkCOVt0fCjcFuZ9FPYfuezTBImfHCDBGQ==}
+
   '@types/estree@0.0.39':
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
 
@@ -1600,6 +1606,9 @@ packages:
 
   '@types/html-minifier-terser@7.0.2':
     resolution: {integrity: sha512-mm2HqV22l8lFQh4r2oSsOEVea+m0qqxEmwpc9kC1p/XzmjLWrReR9D/GRs8Pex2NX/imyEH9c5IU/7tMBQCHOA==}
+
+  '@types/json-schema@7.0.15':
+    resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
   '@types/katex@0.16.7':
     resolution: {integrity: sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ==}
@@ -1767,8 +1776,8 @@ packages:
     peerDependencies:
       astro: ^2.0.4 || ^3.0.0 || ^4.0.0
 
-  astro@4.10.3:
-    resolution: {integrity: sha512-TWCJM+Vg+y0UoEz/H75rfp/u2N8yxeQQ2UrU9+fMcbjlzQJtGGDq3ApdundqPZgAuCryRuJnrKytStMZCFnlvQ==}
+  astro@4.11.0:
+    resolution: {integrity: sha512-3VWxz/08sChQIX68tuE7Y769DUdjsT3Zq2/y4SkrDRlwN9IZ/aebwcRWr5a2yMSdO2vpFxtEdobq0mKnMlLErg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4404,8 +4413,8 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
+  typescript@5.5.2:
+    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -4744,13 +4753,13 @@ snapshots:
 
   '@antfu/utils@0.7.8': {}
 
-  '@astrojs/check@0.5.10(typescript@5.4.5)':
+  '@astrojs/check@0.5.10(typescript@5.5.2)':
     dependencies:
-      '@astrojs/language-server': 2.10.0(typescript@5.4.5)
+      '@astrojs/language-server': 2.10.0(typescript@5.5.2)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.4.5
+      typescript: 5.5.2
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
@@ -4760,11 +4769,11 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.0': {}
 
-  '@astrojs/language-server@2.10.0(typescript@5.4.5)':
+  '@astrojs/language-server@2.10.0(typescript@5.5.2)':
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/kit': 2.2.5(typescript@5.4.5)
+      '@volar/kit': 2.2.5(typescript@5.5.2)
       '@volar/language-core': 2.2.5
       '@volar/language-server': 2.2.5
       '@volar/language-service': 2.2.5
@@ -4819,20 +4828,20 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/svelte@5.6.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5))(svelte@4.2.18)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1))':
+  '@astrojs/svelte@5.6.0(astro@4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2))(svelte@4.2.18)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@4.2.18)(vite@5.3.1(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1))
-      astro: 4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)
+      astro: 4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2)
       svelte: 4.2.18
-      svelte2tsx: 0.7.10(svelte@4.2.18)(typescript@5.4.5)
-      typescript: 5.4.5
+      svelte2tsx: 0.7.10(svelte@4.2.18)(typescript@5.5.2)
+      typescript: 5.5.2
     transitivePeerDependencies:
       - supports-color
       - vite
 
-  '@astrojs/tailwind@5.1.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5))(tailwindcss@3.4.4)':
+  '@astrojs/tailwind@5.1.0(astro@4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2))(tailwindcss@3.4.4)':
     dependencies:
-      astro: 4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)
+      astro: 4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2)
       autoprefixer: 10.4.19(postcss@8.4.38)
       postcss: 8.4.38
       postcss-load-config: 4.0.2(postcss@8.4.38)
@@ -6384,6 +6393,11 @@ snapshots:
     dependencies:
       '@types/ms': 0.7.34
 
+  '@types/eslint@8.56.10':
+    dependencies:
+      '@types/estree': 1.0.5
+      '@types/json-schema': 7.0.15
+
   '@types/estree@0.0.39': {}
 
   '@types/estree@1.0.5': {}
@@ -6397,6 +6411,8 @@ snapshots:
       '@types/unist': 3.0.2
 
   '@types/html-minifier-terser@7.0.2': {}
+
+  '@types/json-schema@7.0.15': {}
 
   '@types/katex@0.16.7': {}
 
@@ -6459,12 +6475,12 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@volar/kit@2.2.5(typescript@5.4.5)':
+  '@volar/kit@2.2.5(typescript@5.5.2)':
     dependencies:
       '@volar/language-service': 2.2.5
       '@volar/typescript': 2.2.5
       typesafe-path: 0.2.2
-      typescript: 5.4.5
+      typescript: 5.5.2
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
 
@@ -6580,12 +6596,12 @@ snapshots:
       is-array-buffer: 3.0.4
       is-shared-array-buffer: 1.0.3
 
-  astro-compress@2.2.28(@types/node@20.14.5)(stylus@0.63.0)(typescript@5.4.5):
+  astro-compress@2.2.28(@types/node@20.14.5)(stylus@0.63.0)(typescript@5.5.2):
     dependencies:
       '@playform/pipe': 0.0.6
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
-      astro: 4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)
+      astro: 4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2)
       csso: 5.0.5
       html-minifier-terser: 7.2.0
       kleur: 4.1.5
@@ -6610,14 +6626,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro-pagefind@1.5.0(astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)):
+  astro-pagefind@1.5.0(astro@4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2)):
     dependencies:
       '@pagefind/default-ui': 1.1.0
-      astro: 4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5)
+      astro: 4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2)
       pagefind: 1.1.0
       sirv: 2.0.4
 
-  astro@4.10.3(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.4.5):
+  astro@4.11.0(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
@@ -6673,7 +6689,7 @@ snapshots:
       shiki: 1.7.0
       string-width: 7.1.0
       strip-ansi: 7.1.0
-      tsconfck: 3.1.0(typescript@5.4.5)
+      tsconfck: 3.1.0(typescript@5.5.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
       vite: 5.3.1(@types/node@20.14.5)(lightningcss@1.25.1)(stylus@0.63.0)(terser@5.31.1)
@@ -9720,12 +9736,12 @@ snapshots:
     dependencies:
       svelte: 4.2.18
 
-  svelte2tsx@0.7.10(svelte@4.2.18)(typescript@5.4.5):
+  svelte2tsx@0.7.10(svelte@4.2.18)(typescript@5.5.2):
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
       svelte: 4.2.18
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   svelte@4.2.18:
     dependencies:
@@ -9857,9 +9873,9 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  tsconfck@3.1.0(typescript@5.4.5):
+  tsconfck@3.1.0(typescript@5.5.2):
     optionalDependencies:
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   tslib@2.6.3: {}
 
@@ -9907,7 +9923,7 @@ snapshots:
 
   typescript@4.9.5: {}
 
-  typescript@5.4.5: {}
+  typescript@5.5.2: {}
 
   uc.micro@2.1.0: {}
 

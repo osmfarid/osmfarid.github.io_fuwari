@@ -3,21 +3,12 @@ import GlobalStyles from '@components/GlobalStyles.astro'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
-import ImageWrapper from '@components/misc/ImageWrapper.astro'
+import Header from '@components/base-partials/Header.astro'
+import Banner from '@components/base-partials/Banner.astro'
 
 import { pathsEqual } from '@utils/url-utils'
 import ConfigCarrier from '@components/ConfigCarrier.astro'
-import { profileConfig, siteConfig } from '@/config'
-import type { Favicon } from '../types/config'
-import { defaultFavicons } from '../constants/icon'
-import {
-  LIGHT_MODE,
-  DARK_MODE,
-  AUTO_MODE,
-  DEFAULT_THEME,
-} from '../constants/constants'
-import { url } from '../utils/url-utils'
-import GoatCounter from '@components/misc/GoatCounter.astro'
+import { siteConfig } from '@/config'
 
 interface Props {
   title: string
@@ -29,26 +20,6 @@ let { title, banner, description } = Astro.props
 
 const isHomePage = pathsEqual(Astro.url.pathname, '/')
 
-// const anim = {
-//   old: {
-//     name: 'fadeIn',
-//     duration: '4s',
-//     easing: 'linear',
-//     fillMode: 'forwards',
-//     mixBlendMode: 'normal',
-//   },
-//   new: {
-//     name: 'fadeOut',
-//     duration: '4s',
-//     easing: 'linear',
-//     fillMode: 'backwards',
-//     mixBlendMode: 'normal',
-//   },
-// }
-
-// defines global css variables
-// why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
-const configHue = siteConfig.themeColor.hue
 if (!banner || typeof banner !== 'string' || banner.trim() === '') {
   banner = siteConfig.banner.src
 }
@@ -58,171 +29,27 @@ banner = siteConfig.banner.src
 
 const enableBanner = siteConfig.banner.enable
 
-let pageTitle
-if (title) {
-  pageTitle = `${title} - ${siteConfig.title}`
-} else {
-  pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`
-}
-
-const favicons: Favicon[] =
-  siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons
-
 const siteLang = siteConfig.lang.replace('_', '-')
 ---
 <!-- pathname={testPathName} -->
 <!DOCTYPE html>
-<html lang={siteLang} data-is-home={isHomePage}  class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px]">
-	<head>
-
-		<title>{pageTitle}</title>
-
-		<meta charset="UTF-8" />
-		<meta name="description" content={description || pageTitle}>
-		<meta name="author" content={profileConfig.name}>
-
-		<meta property="og:site_name" content={siteConfig.title}>
-		<meta property="og:url" content={Astro.url}>
-		<meta property="og:title" content={title}>
-		<meta property="og:description" content={description || pageTitle}>
-
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content={Astro.url}>
-		<meta name="twitter:title" content={pageTitle}>
-		<meta name="twitter:description" content={description || pageTitle}>
-
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		{favicons.map(favicon => (
-			<link rel="icon"
-				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
-				  sizes={favicon.sizes}
-				  media={favicon.theme && `(prefers-color-scheme: ${favicon.theme})`}
-			/>
-		))}
-		<!-- Set the theme before the page is rendered to avoid a flash -->
-		<script is:inline define:vars={{DEFAULT_THEME: DEFAULT_THEME, LIGHT_MODE: LIGHT_MODE, DARK_MODE: DARK_MODE, AUTO_MODE: AUTO_MODE}}>
-			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
-			switch (theme) {
-				case LIGHT_MODE:
-					document.documentElement.classList.remove('dark');
-					break
-				case DARK_MODE:
-					document.documentElement.classList.add('dark');
-					break
-				case AUTO_MODE:
-					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-						document.documentElement.classList.add('dark');
-					} else {
-						document.documentElement.classList.remove('dark');
-					}
-			}
-		</script>
-		<GoatCounter/>
-
-		<slot name="head"></slot>
-
-		<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-
-		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
-
-		<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
-	</head>
-	<body class=" min-h-screen transition " class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
+<html data-overlayscrollbars-initialize lang={siteLang} data-is-home={isHomePage}  class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px]">
+	<Header title={title} description={description}></Header>
+	<body data-overlayscrollbars-initialize class=" min-h-screen transition " class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
 		<ConfigCarrier></ConfigCarrier>
 		<GlobalStyles>
-		<div id="banner-wrapper" class="absolute w-full">
-			<ImageWrapper alt="Banner image of the blog" class:list={["object-center object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
-					  src={siteConfig.banner.src}
-			>
-			</ImageWrapper>
-		</div>
-		<slot />
+			<Banner banner={banner}></Banner>
+			<slot />
 		</GlobalStyles>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--hue: var(--configHue);
-		--page-width: 75rem;
-	}
-</style>
-<style is:global>
-@tailwind components;
-@tailwind utilities;
 
-@layer components {
-	/* TODO: temporarily make banner height same for all pages since I cannot make the transition feel good
-		I want to make the height transition parallel with the content transition instead of blocking it
-	*/
-
-	/*
-	.enable-banner.is-home #banner-wrapper {
-		@apply h-[var(--banner-height)] md:h-[var(--banner-height-home)]
-	}
-	*/
-	.enable-banner #banner-wrapper {
-		@apply h-[var(--banner-height)]
-	}
-
-	/*
-	.enable-banner.is-home #top-row {
-		@apply h-[calc(var(--banner-height)_-_4.5rem)] md:h-[calc(var(--banner-height-home)_-_4.5rem)]
-	}
-	*/
-	.enable-banner #top-row {
-		@apply h-[calc(var(--banner-height)_-_4.5rem)]
-	}
-}
-</style>
 <script>
 import 'overlayscrollbars/overlayscrollbars.css';
 import {
 	OverlayScrollbars
 } from 'overlayscrollbars';
 import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
-
-	/* Preload fonts */
-// (async function() {
-// 	try {
-// 		await Promise.all([
-// 			document.fonts.load("400 1em Roboto"),
-// 			document.fonts.load("700 1em Roboto"),
-// 		]);
-// 		document.body.classList.remove("hidden");
-// 	} catch (error) {
-// 		console.log("Failed to load fonts:", error);
-// 	}
-// })();
-
-/* TODO This is a temporary solution for style flicker issue when the transition is activated */
-/* issue link: https://github.com/withastro/astro/issues/8711, the solution get from here too */
-/* update: fixed in Astro 3.2.4 */
-// function disableAnimation() {
-// 	const css = document.createElement('style')
-// 	css.appendChild(
-// 		document.createTextNode(
-// 			`*{
-//               -webkit-transition:none!important;
-//               -moz-transition:none!important;
-//               -o-transition:none!important;
-//               -ms-transition:none!important;
-//               transition:none!important
-//               }`
-// 		)
-// 	)
-// 	document.head.appendChild(css)
-
-// 	return () => {
-// 		// Force restyle
-// 		;(() => window.getComputedStyle(document.body))()
-
-// 		// Wait for next tick before removing
-// 		setTimeout(() => {
-// 			document.head.removeChild(css)
-// 		}, 1)
-// 	}
-// }
 
 function setClickOutsideToClose(panel: string, ignores: string[]) {
 	document.addEventListener("click", event => {
@@ -292,7 +119,6 @@ function initCustomScrollbar() {
 }
 
 function init() {
-	// disableAnimation()()		// TODO
 	setBannerHeight();
 	loadTheme();
 	loadHue();
@@ -334,13 +160,3 @@ if (window.swup && window.swup.hooks) {
 }
 
 </script>
-
-<style is:global lang="stylus">
-#banner-wrapper
-	top: 0
-	opacity: 1
-.banner-closed
-	#banner-wrapper
-		top: -120px
-		opacity: 0
-</style>
