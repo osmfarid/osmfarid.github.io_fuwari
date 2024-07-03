@@ -2,9 +2,8 @@
 import { profileConfig } from '@/config'
 ---
 
-<div class="card-base max-w-[var(--page-width)] min-h-[4.5rem] rounded-b-none mx-auto flex items-center px-6">
-    <div class="transition flex flex-wrap justify-between items-center w-full text-50 text-sm">
-        <div class="text-center w-full md:w-auto md:text-left">© 2024 <span class="font-bold">{profileConfig.name}</span>. Some rights reserved.</div>
-       <div class="text-center w-full md:w-auto md:text-right">Using modified <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a> theme for <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build/">Astro</a>.</div>
-    </div>
-</div>
+<footer id="footer" class="grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:!grid-cols-2 items-center text-50 text-sm row-start-3 onload-animation card-base w-full h-full rounded-b-none mx-auto px-6">
+    <div class="text-center md:text-left">© 2024 <span class="font-bold">{profileConfig.name}</span>. Some rights reserved.</div>
+    <div class="text-center md:text-right">Using modified <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a> theme for <a class="link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build/">Astro</a>.</div>
+</footer>
+

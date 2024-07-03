@@ -1,0 +1,16 @@
+---
+
+import { getEntry } from 'astro:content'
+
+import ArticleLayout from '@layouts/ArticleLayout.astro'
+
+import { i18n } from '@i18n/translation'
+import I18nKey from '@i18n/i18nKey'
+
+const post404 = await getEntry('spec', '404')
+
+const { Content } = await post404.render()
+---
+<ArticleLayout title={i18n(I18nKey.notFound)} description={i18n(I18nKey.notFound)}>
+    <Content />
+</ArticleLayout>

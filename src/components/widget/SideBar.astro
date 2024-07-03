@@ -5,7 +5,7 @@ import Categories from '@components/widget/Categories.astro'
 
 const className = Astro.props.class
 ---
-<div id="sidebar" class:list={[className, "w-full"]}>
+<aside id="sidebar" class:list={[className, "w-full", "hidden md:block onload-animation"]}>
     <div class="flex flex-col w-full gap-4 mb-4">
         <Profile></Profile>
     </div>
@@ -13,4 +13,4 @@ const className = Astro.props.class
         <Categories class="onload-animation" style="animation-delay: 150ms"></Categories>
         <Tag class="onload-animation" style="animation-delay: 200ms"></Tag>
     </div>
-</div>
+</aside>

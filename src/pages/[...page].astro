@@ -31,6 +31,8 @@ const len = page.data.length
 ---
 
 <BaseLayout>
-    <PostPage page={page}></PostPage>
-    <Pagination class="mx-auto onload-animation" page={page} style=`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`></Pagination>
+    <section class="md:min-h-full grid grid-rows-[auto_fit-content(2.75rem)]">
+      <PostPage page={page}></PostPage>
+      <Pagination class="mx-auto onload-animation" page={page} style=`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`></Pagination>
+    </section>
 </BaseLayout>

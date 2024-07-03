@@ -72,7 +72,8 @@ let pageTitle = title ? `${title} - ${siteConfig.title}` : `${siteConfig.title} 
         }
     </script>
     {import.meta.env.PROD && <GoatCounter/>}
-    <!-- <slot name="head"></slot> -->
+    <!-- slot head -->
+    <slot name="head"></slot>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 

@@ -67,7 +67,7 @@
     placeholder="Search"
     bind:value={keywordDesktop}
     on:focus={() => search(keywordDesktop, true)}
-    class="transition-all pl-10 pr-5 text-sm bg-transparent outline-0
+    class="transition-all pl-10 pr-5 text-sm bg-transparent outline-transparent focus:outline-none
          h-full w-40 active:w-60 focus:w-60 text-black/50 dark:text-white/50"
   />
 </div>

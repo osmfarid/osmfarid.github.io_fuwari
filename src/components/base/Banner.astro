@@ -16,12 +16,12 @@ if (!banner || typeof banner !== 'string' || banner.trim() === '') {
 banner = siteConfig.banner.src
 ---
 
-<div id="banner-wrapper" class="absolute w-full">
+<header id="banner-wrapper" class="absolute w-full">
     <ImageWrapper alt="Banner image of the blog" class:list={["object-center object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
               src={siteConfig.banner.src}
     >
     </ImageWrapper>
-</div>
+</header>
 
 <!-- <style is:global lang="stylus">
     #banner-wrapper

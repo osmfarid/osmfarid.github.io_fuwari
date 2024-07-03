@@ -34,35 +34,23 @@ const enableBanner = siteConfig.banner.enable
 const siteLang = siteConfig.lang.replace('_', '-')
 ---
 <!DOCTYPE html>
-<html data-overlayscrollbars-initialize lang={siteLang} data-is-home={isHomePage}  class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px]">
-	<Head title={title} description={description}>
-		<!-- <slot slot="head" name="head"></slot> -->
-	</Head>
-	<body data-overlayscrollbars-initialize class="min-h-screen transition" class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
-		<Banner banner={banner}></Banner>
-		<div class="max-w-[var(--page-width)] min-h-screen grid grid-cols-[17.5rem_auto] grid-rows-[auto_auto_1fr_auto] lg:grid-rows-[auto_1fr_auto]
-				mx-auto gap-4 relative px-0 md:px-4"
-			>
-				<div id="top-row" class="col-span-2 grid-rows-1 z-50 onload-animation" class:list={[""]}>
-					<div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> 
-					<!-- used for onload animation -->
-					<Navbar></Navbar>
-				</div>
-				<SideBar class="row-start-3 row-end-4 col-span-2 lg:row-start-2 lg:row-end-3 lg:col-span-1 lg:max-w-[17.5rem] onload-animation"></SideBar>
-
-				<div id="content-wrapper" class="row-start-2 row-end-3 col-span-2 lg:col-span-1 overflow-hidden onload-animation">
-					<!-- the overflow-hidden here prevent long text break the layout-->
-					<main id="swup" class="transition-fade">
-						<slot></slot>
-					</main>
-
-				</div>
-
-				<div id="footer" class="grid-rows-3 col-span-2 mt-4 onload-animation">
-					<Footer></Footer>
-				</div>
-				<BackToTop></BackToTop>
-		</div>
+<html 
+	data-overlayscrollbars-initialize 
+	lang={siteLang} 
+	data-is-home={isHomePage}  
+	class="html-styles transition">
+	<Head title={title} description={description}><slot slot="head" name="head"></slot></Head>
+	<body data-overlayscrollbars-initialize class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}, "body"]}>
+		{enableBanner && <Banner banner={banner}/>}
+		<Navbar/>
+		<main id="content-wrapper" class="grid grid-cols-1 md:!grid-cols-[17.5rem_auto] gap-4">
+			<SideBar/>
+			<article id="swup" class="transition-fade">
+				<slot/>
+			</article>
+		</main>
+		<Footer/>
+		<!-- <BackToTop/> -->
 	</body>
 </html>
 
