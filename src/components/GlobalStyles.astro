@@ -1,13 +1,4 @@
----
-
----
-
-<div>
-    <slot/>
-</div>
-
 <style is:global lang="stylus">
-
 /* utils */
 white(a)
   rgba(255, 255, 255, a)
@@ -53,6 +44,8 @@ rainbow-dark = linear-gradient(to right, oklch(0.70 0.10 0), oklch(0.70 0.10 30)
   --banner-height 40vh
 
   --content-delay 150ms
+
+  --page-width: 75rem;
 
 color_set({
   --primary: oklch(0.70 0.14 var(--hue)) oklch(0.75 0.14 var(--hue))

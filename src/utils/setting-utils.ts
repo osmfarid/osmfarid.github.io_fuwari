@@ -13,12 +13,12 @@ export function getHue(): number {
 }
 
 export function setHue(hue: number): void {
-  localStorage.setItem('hue', String(hue))
-  const r = document.querySelector(':root') as unknown as HTMLElement
-  if (!r) {
+  localStorage.setItem('hue', hue.toString())
+  const rootElement =  document.querySelector(":root") as HTMLElement;
+  if (!rootElement) {
     return
   }
-  r.style.setProperty('--hue', hue.toString())
+  rootElement.style.setProperty('--hue', hue.toString())
 }
 
 

@@ -45,6 +45,7 @@ export default defineConfig({
       preload: true,
       accessibility: true,
       globalInstance: true,
+      // debug: import.meta.env.DEV
     }),
     icon({
       include: {
@@ -56,6 +57,7 @@ export default defineConfig({
     }),
     Compress({
       Image: false,
+      CSS: false,
     }),
     svelte(),
     sitemap(),

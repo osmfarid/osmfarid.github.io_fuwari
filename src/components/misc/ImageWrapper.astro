@@ -1,5 +1,8 @@
 ---
 import path from 'path'
+import { Image } from 'astro:assets'
+import { url } from '@utils/url-utils'
+
 interface Props {
   src: string
   class?: string
@@ -7,8 +10,6 @@ interface Props {
   position?: string
   basePath?: string
 }
-import { Image } from 'astro:assets'
-import { url } from '../../utils/url-utils'
 
 const { src, alt, position = 'center', basePath = '/' } = Astro.props
 const className = Astro.props.class

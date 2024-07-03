@@ -1,11 +1,11 @@
 ---
 import path from 'node:path'
-import PostMetadata from './PostMeta.astro'
-import ImageWrapper from './misc/ImageWrapper.astro'
+import PostMetadata from '@components/PostMeta.astro'
+import ImageWrapper from '@components/misc/ImageWrapper.astro'
 import { Icon } from 'astro-icon/components'
-import { i18n } from '../i18n/translation'
-import I18nKey from '../i18n/i18nKey'
-import { getDir } from '../utils/url-utils'
+import { i18n } from '@i18n/translation'
+import I18nKey from '@i18n/i18nKey'
+import { getDir } from '@utils/url-utils'
 
 interface Props {
   class?: string
