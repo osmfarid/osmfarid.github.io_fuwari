@@ -11,6 +11,7 @@ import SideBar from '@components/widget/SideBar.astro'
 
 import { pathsEqual } from '@utils/url-utils'
 import { siteConfig } from '@/config'
+import ConfigCarrier from '@components/base/ConfigCarrier.astro'
 
 interface Props {
   title?: string
@@ -31,26 +32,25 @@ banner = siteConfig.banner.src
 
 const enableBanner = siteConfig.banner.enable
 
+const bodyClassList = {"is-home": isHomePage, "enable-banner": enableBanner}
+
 const siteLang = siteConfig.lang.replace('_', '-')
 ---
 <!DOCTYPE html>
-<html 
-	data-overlayscrollbars-initialize 
-	lang={siteLang} 
-	data-is-home={isHomePage}  
-	class="html-styles transition">
+<html data-overlayscrollbars-initialize lang={siteLang} data-is-home={isHomePage}>
 	<Head title={title} description={description}><slot slot="head" name="head"></slot></Head>
-	<body data-overlayscrollbars-initialize class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}, "body"]}>
+	<body data-overlayscrollbars-initialize class:list={[bodyClassList]}>
 		{enableBanner && <Banner banner={banner}/>}
+		<ConfigCarrier></ConfigCarrier>
 		<Navbar/>
-		<main id="content-wrapper" class="grid grid-cols-1 md:!grid-cols-[17.5rem_auto] gap-4">
-			<SideBar/>
-			<article id="swup" class="transition-fade">
-				<slot/>
-			</article>
-		</main>
+		<section id="content-wrapper" class="grid grid-cols-1 md:!grid-cols-[17.5rem_auto] gap-4">
+		<SideBar/>
+			<main id="swup" class="grid-in-main transition-fade">
+				<slot></slot>
+			</main>
+		</section>
 		<Footer/>
-		<!-- <BackToTop/> -->
+		<BackToTop/>
 	</body>
 </html>
 
@@ -139,24 +139,11 @@ function init() {
 init();
 
 /* Load settings before swapping */
-/* astro:after-swap event happened before swap animation */
 document.addEventListener('astro:after-swap', init);
 
 const setup = () => {
-	// TODO: temp solution to change the height of the banner
-/*
-	window.swup.hooks.on('animation:out:start', () => {
-		const path = window.location.pathname
-		const body = document.querySelector('body')
-		if (path[path.length - 1] === '/' && !body.classList.contains('is-home')) {
-			body.classList.add('is-home')
-		} else if (path[path.length - 1] !== '/' && body.classList.contains('is-home')) {
-			body.classList.remove('is-home')
-		}
-	})
-*/
 if(window.swup && window.swup.hooks){
-// Remove the delay for the first time page load
+	// Remove the delay for the first time page load
 	window.swup.hooks.on('link:click', () => {
 		document.documentElement.style.setProperty('--content-delay', '0ms')
 	})

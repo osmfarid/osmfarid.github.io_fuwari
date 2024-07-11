@@ -11,7 +11,7 @@ const links = Astro.props.links
 ---
 <div id="nav-menu-panel" class:list={["float-panel float-panel-closed transition-all fixed right-4 px-2 py-2"]}>
     {links.map((link) => (
-        <a href={link.external ? link.url : url(link.url)} class="group flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8
+        <a data-swup-preload href={link.external ? link.url : url(link.url)} class="group flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8
             hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)] transition
         "
            target={link.external ? "_blank" : null}
@@ -30,3 +30,22 @@ const links = Astro.props.links
         </a>
     ))}
 </div>
+
+<!-- <script>
+    const navLinks = document.querySelectorAll("#nav-menu-panel a");
+  
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+  
+      // `slice` here to remove the first `/` in pathname
+      const currentPath = window.location.pathname.slice("1");
+  
+      // `link.href` returns a whole url, such as: "https://somedomain.com/posts" and we only need the last part
+      const hrefArray = link.href.split("/");
+      const thisPath = hrefArray[hrefArray.length - 1];
+  
+      if (currentPath === thisPath) {
+        link.classList.add("active");
+      }
+    });
+  </script> -->

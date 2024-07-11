@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Roboto", "sans-serif", ...defaultTheme.fontFamily.sans],
-      },
+      }
     },
   },
   plugins: [require("@tailwindcss/typography")],

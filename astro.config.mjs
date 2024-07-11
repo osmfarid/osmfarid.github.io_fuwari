@@ -1,6 +1,6 @@
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
-import tailwind from '@astrojs/tailwind'
+// import tailwind from '@astrojs/tailwind'
 import swup from '@swup/astro'
 import Compress from 'astro-compress'
 import icon from 'astro-icon'
@@ -35,15 +35,17 @@ export default defineConfig({
   base: '/',
   trailingSlash: 'always',
   integrations: [
-    tailwind(),
     swup({
       theme: false,
       animationClass: 'transition-',
       containers: ['main'],
       smoothScrolling: true,
       cache: true,
-      preload: true,
-      accessibility: true,
+      preload: {
+        hover: true,
+        visible: true
+      },
+      // accessibility: true,
       globalInstance: true,
       // debug: import.meta.env.DEV
     }),

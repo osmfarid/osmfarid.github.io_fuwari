@@ -11,5 +11,7 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
-  "frontMatter.dashboard.openOnStart": false,
+  "files.associations": {
+    "*.css": "tailwindcss",
+  },
 }
