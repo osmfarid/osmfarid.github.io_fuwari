@@ -21,7 +21,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
 ---
 <div id="top-row" class="col-span-full z-50 onload-animation">
     <!-- used for onload animation -->
-    <!-- <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div>  -->
+    <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> 
     <div class="card-base overflow-visible h-14 md:h-16 rounded-t-none mx-auto px-4 grid grid-cols-2 lg:grid-cols-[17.5rem_auto_17.5rem]  items-center">
         <div>
             <a href={url('/')} class="inline-flex btn-plain h-10 md:h-12 px-5 font-bold rounded-lg active:scale-95">
@@ -81,7 +81,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
             <Icon slot="restore-icon" name="fa6-solid:arrow-rotate-left" size={"0.875rem"} class=""></Icon>
         </DisplaySettings>
     </div>
-</div>
+</header>
 
 
 <script>

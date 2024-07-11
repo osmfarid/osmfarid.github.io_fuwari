@@ -3,8 +3,7 @@ title: Welcome!
 published: 2024-06-19
 description: Yes, we're open :D
 image: ./welcome.png
-tags:
-    - Other
+category: Other
 draft: false
 ---
 

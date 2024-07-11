@@ -58,7 +58,9 @@ export function GithubCardComponent(properties, children) {
     `script#${cardUuid}-script`,
     { type: 'text/javascript', defer: true },
     `
-      fetch('https://api.github.com/repos/${repo}', { referrerPolicy: "no-referrer" }).then(response => response.json()).then(data => {
+      fetch('https://api.github.com/repos/${repo}', { referrerPolicy: "no-referrer" })
+      .then(response => response.json())
+      .then(data => {
         document.getElementById('${cardUuid}-card').href = data.html_url;
         document.getElementById('${cardUuid}-description').innerText = data.description.replace(/:[a-zA-Z0-9_]+:/g, '');
         document.getElementById('${cardUuid}-language').innerText = data.language;
@@ -72,14 +74,14 @@ export function GithubCardComponent(properties, children) {
         } else {
           document.getElementById('${cardUuid}-license').classList.add = "no-license"
         };
-          document.getElementById('${cardUuid}-card').classList.remove("fetch-waiting");
-          // console.log("[GITHUB-CARD] Loaded card for ${repo} | ${cardUuid}.")
+        document.getElementById('${cardUuid}-card').classList.remove("fetch-waiting");
+        /* console.log("[GITHUB-CARD] Loaded card for ${repo} | ${cardUuid}.") */
       }).catch(err => {
         const c = document.getElementById('${cardUuid}-card');
         c.classList.add("fetch-error");
-        //  console.warn("[GITHUB-CARD] (Error) Loading card for ${repo} | ${cardUuid}.")
+         /* console.warn("[GITHUB-CARD] (Error) Loading card for ${repo} | ${cardUuid}.") */
       })
-    `,
+    `
   )
 
   return h(

@@ -1,6 +1,5 @@
-// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 import { h } from 'hastscript';
-import {visit} from 'unist-util-visit'
+import { visit } from 'unist-util-visit'
 
 export function parseDirectiveNode() {
     return (tree) => {
