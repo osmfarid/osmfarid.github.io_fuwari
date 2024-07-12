@@ -9,13 +9,22 @@ interface Props {
   class?: string
   published: Date
   tags: string[]
-  category: string
+  category: string,
+  draft: boolean,
   hideTagsForMobile?: boolean
 }
-const { published, tags, category, hideTagsForMobile = true } = Astro.props
+const { published, tags, category, draft, hideTagsForMobile = true } = Astro.props
 const className = Astro.props.class
 ---
 <div class:list={["flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2", className]}>
+    <!-- Is Draft ? -->
+     {draft && <div class="flex items-center select-none">
+        <div class="meta-icon">
+            <Icon name="material-symbols:draft" class="text-xl text-orange-700 dark:text-orange-400"></Icon>
+        </div>
+        <span class="text-50 text-sm text-orange-700 dark:text-orange-400 font-medium">Draft</span>
+    </div>}
+    
     <!-- publish date -->
     <div class="flex items-center select-none">
         <div class="meta-icon">

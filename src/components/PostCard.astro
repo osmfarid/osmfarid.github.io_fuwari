@@ -30,6 +30,7 @@ const {
   image,
   description,
   style,
+  draft
 } = Astro.props
 
 const hasCover = image !== undefined && image !== null && image !== ''
@@ -47,7 +48,7 @@ const { remarkPluginFrontmatter } = await entry.render()
         </a>
 
         <!-- metadata -->
-        <PostMetadata published={published} tags={tags} category={category} hideTagsForMobile={true}></PostMetadata>
+        <PostMetadata published={published} tags={tags} category={category} hideTagsForMobile={true} draft={draft}></PostMetadata>
 
         <!-- description -->
         { description && 
