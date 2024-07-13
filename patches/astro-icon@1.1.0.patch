@@ -1,0 +1,17 @@
+diff --git a/components/Icon.astro b/components/Icon.astro
+index 43d202d7991e068a72a3c09564e0586236150bfb..341ef0a953ddf5b76b5aada89a5c476aeab28896 100644
+--- a/components/Icon.astro
++++ b/components/Icon.astro
+@@ -11,9 +11,9 @@ interface Props extends HTMLAttributes<"svg"> {
+   name: Icon;
+   "is:inline"?: boolean;
+   title?: string;
+-  size?: number;
+-  width?: number;
+-  height?: number;
++  size?: number | string;
++  width?: number | string;
++  height?: number | string;
+ }
+ 
+ class AstroIconError extends Error {

@@ -26,11 +26,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
         <div>
             <a href={url('/')} class="inline-flex btn-plain h-10 md:h-12 px-5 font-bold rounded-lg active:scale-95">
                 <div class="flex flex-row text-[var(--primary)] items-center text-md">
-                    {/* @ts-ignore */}
                     <Icon name="fa6-solid:house-chimney" size={"1.25rem"} class="mb-1 mr-2" />
-                     <!-- <div  style="height: 1.75rem; width: 1.75rem" class="mr-2">
-                        <Fragment set:html={logo} />
-                     </div> -->
                     {siteConfig.title}
                 </div>
             </a>
@@ -42,7 +38,6 @@ let links: NavBarLink[] = navBarConfig.links.map(
                 >
                     <div class="flex items-center">
                         {l.name}
-                        {/* @ts-ignore */}
                         {l.external && <Icon size="14" name="fa6-solid:arrow-up-right-from-square" class="transition -translate-y-[1px] ml-1 text-black/[0.2] dark:text-white/[0.2]"></Icon>}
                     </div>
                 </a>;
@@ -52,32 +47,26 @@ let links: NavBarLink[] = navBarConfig.links.map(
             <!--<SearchPanel client:load>-->
             <div>
                 <Search client:load>
-                    {/* @ts-ignore */}
                     <Icon slot="search-icon" name="material-symbols:search" size={"1.25rem"} class="absolute pointer-events-none ml-3 transition my-auto text-black/30 dark:text-white/30"></Icon>
                     <!--<Icon slot="arrow-icon" name="material-symbols:chevron-right-rounded" size={"1.25rem"} class="transition my-auto text-[var(&#45;&#45;primary)]"></Icon>-->
-                    {/* @ts-ignore */}
                     <Icon slot="arrow-icon" name="fa6-solid:chevron-right" size={"0.75rem"} class="transition translate-x-0.5 my-auto text-[var(--primary)]"></Icon>
-                    {/* @ts-ignore */}
                     <Icon slot="search-switch" name="material-symbols:search" size={"1.25rem"}></Icon>
                 </Search>
             </div>
             <div class="flex">
                 {!siteConfig.themeColor.fixed && (
                     <button aria-label="Display Settings" class="btn-plain h-11 w-11 rounded-lg active:scale-90" id="display-settings-switch">
-                        {/* @ts-ignore */}
                         <Icon name="material-symbols:palette-outline" size={"1.25rem"}></Icon>
                     </button>
                 )}
                 <ThemeSwitcher client:load></ThemeSwitcher>
                 <button aria-label="Menu" name="Nav Menu" class="btn-plain w-11 h-11 rounded-lg active:scale-90 lg:hidden" id="nav-menu-switch">
-                    {/* @ts-ignore */}
                     <Icon name="material-symbols:menu-rounded" size={"1.25rem"}></Icon>
                 </button>
             </div>
         </div>
         <NavMenuPanel links={links}></NavMenuPanel>
         <DisplaySettings client:only="svelte">
-            {/* @ts-ignore */}
             <Icon slot="restore-icon" name="fa6-solid:arrow-rotate-left" size={"0.875rem"} class=""></Icon>
         </DisplaySettings>
     </div>

@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  astro-icon@1.1.0:
+    hash: 74gwltwsaxm5twzsd2ebn6wpny
+    path: patches/astro-icon@1.1.0.patch
+
 importers:
 
   .:
@@ -40,7 +45,7 @@ importers:
         version: 2.2.28(@types/node@20.14.9)(sass@1.77.6)(stylus@0.63.0)(typescript@5.5.2)
       astro-icon:
         specifier: 1.1.0
-        version: 1.1.0
+        version: 1.1.0(patch_hash=74gwltwsaxm5twzsd2ebn6wpny)
       astro-pagefind:
         specifier: ^1.5.0
         version: 1.5.0(astro@4.11.3(@types/node@20.14.9)(lightningcss@1.25.1)(sass@1.77.6)(stylus@0.63.0)(terser@5.31.1)(typescript@5.5.2))
@@ -6681,7 +6686,7 @@ snapshots:
       - supports-color
       - typescript
 
-  astro-icon@1.1.0:
+  astro-icon@1.1.0(patch_hash=74gwltwsaxm5twzsd2ebn6wpny):
     dependencies:
       '@iconify/tools': 3.0.7
       '@iconify/types': 2.0.0
