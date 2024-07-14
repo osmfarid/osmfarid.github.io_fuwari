@@ -1,29 +1,21 @@
 ---
-// import PostCard from '../components/PostCard.astro'
-import Pagination from '../components/control/Pagination.astro'
-import { getSortedPosts } from '../utils/content-utils'
-// import { getPostUrlBySlug } from '../utils/url-utils'
-import { PAGE_SIZE } from '../constants/constants'
-import PostPage from '../components/PostPage.astro'
-import type { Page } from 'astro'
+import Pagination from '@components/molecules/Pagination.astro'
+import { getSortedPosts } from '@utils/content-utils'
+import { PAGE_SIZE } from '@constants/constants'
+import PostPage from '@components/organisms/PostPage.astro'
+import type { GetStaticPaths, Page } from 'astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
+import type { CollectionEntry } from 'astro:content'
 
 
-interface Props {
-  page: Page
-}
+type Props = {
+  page: Page<CollectionEntry<'posts'>>;
+};
 
-interface Paginate {
-  paginate: (
-    allBlogPosts: any,
-    options: { pageSize: number },
-  ) => Promise<{ paths: { params: { slug: string } }[]; fallback: boolean }>
-}
-
-export async function getStaticPaths({ paginate }: Paginate) {
-  const allBlogPosts = await getSortedPosts()
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const allBlogPosts = await getSortedPosts();
   return paginate(allBlogPosts, { pageSize: PAGE_SIZE })
-}
+};
 
 const { page } = Astro.props
 

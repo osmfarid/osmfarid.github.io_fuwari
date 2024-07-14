@@ -1,14 +1,21 @@
 ---
 import { getPostUrlBySlug } from '@utils/url-utils'
-import PostCard from '@components/PostCard.astro'
+import PostCard from '@components/molecules/PostCard.astro'
+import type { Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+type Props = {
+  page: Page<CollectionEntry<'posts'>>;
+};
 
 const { page } = Astro.props
+
 
 let delay = 0
 const interval = 50
 ---
 <div class="transition flex flex-col rounded-[var(--radius-large)] bg-[var(--card-bg)] py-1 md:py-0 md:bg-transparent md:gap-4 mb-4">
-    {page.data.map((entry: { data: { draft: boolean; title: string; tags: string[]; category: string; published: Date; image: string; description: string; }; slug: string; }) => {
+    {page.data.map((entry) => {
         return (
             <PostCard
                     entry={entry}

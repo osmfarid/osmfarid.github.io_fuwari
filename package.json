@@ -9,9 +9,7 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "new-post": "node scripts/new-post.js",
-    "format": "biome format --write ./src",
-    "lint": "biome check --apply ./src"
+    "new-post": "node scripts/new-post.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -63,7 +61,6 @@
     "@types/markdown-it": "^14.1.1",
     "@types/mdast": "^4.0.4",
     "@types/sanitize-html": "^2.11.0",
-    "sass": "^1.77.6",
     "stylus": "^0.63.0"
   },
   "pnpm": {

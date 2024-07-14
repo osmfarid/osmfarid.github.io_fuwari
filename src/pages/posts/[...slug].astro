@@ -1,29 +1,35 @@
 ---
 import path from 'path'
-import { getCollection } from 'astro:content'
-import License from '@components/misc/License.astro'
-import Markdown from '@components/misc/Markdown.astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import License from '@components/molecules/License.astro'
+import Markdown from '@components/organisms/Markdown.astro'
 import I18nKey from '@i18n/i18nKey'
 import { i18n } from '@i18n/translation'
 import { getDir, getPostUrlBySlug } from '@utils/url-utils'
 import { Icon } from 'astro-icon/components'
 import { licenseConfig } from 'src/config'
-import PostMetadata from '../../components/PostMeta.astro'
-import ImageWrapper from '../../components/misc/ImageWrapper.astro'
-import { profileConfig } from '../../config'
-import { formatDateToFancy } from '../../utils/date-utils'
-import Giscus from '@components/widget/Giscus.astro'
+import PostMetadata from '@components/molecules/PostMeta.astro'
+import ImageWrapper from '@components/atoms/ImageWrapper.astro'
+import { profileConfig } from '@/config'
+import { formatDateToFancy } from '@/utils/date-utils'
+import Giscus from '@components/organisms/Giscus.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
+import type { GetStaticPaths, Page } from 'astro'
 
-export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts', ({ data }) => {
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const blogEntries = await getCollection('posts', ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true
   })
   return blogEntries.map(entry => ({
     params: { slug: entry.slug },
     props: { entry },
   }))
-}
+};
+
+type Props = {
+  entry: CollectionEntry<'posts'>
+};
 
 const { entry } = Astro.props
 const { Content } = await entry.render()

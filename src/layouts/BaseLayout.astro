@@ -2,16 +2,16 @@
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
-import Head from '@components/base/Head.astro'
-import Banner from '@components/base/Banner.astro'
-import Footer from '@components/base/Footer.astro'
-import Navbar from '@components/base/header/Navbar.astro'
-import BackToTop from '@components/control/BackToTop.astro'
-import SideBar from '@components/widget/SideBar.astro'
+import Head from '@components/organisms/Head.astro'
+import Banner from '@components/organisms/Banner.astro'
+import Footer from '@components/organisms/Footer.astro'
+import Navbar from '@components/organisms/Navbar.astro'
+import BackToTop from '@components/organisms/BackToTop.astro'
+import SideBar from '@components/organisms/SideBar.astro'
 
 import { pathsEqual } from '@utils/url-utils'
 import { siteConfig } from '@/config'
-import ConfigCarrier from '@components/base/ConfigCarrier.astro'
+import ConfigCarrier from '@components/organisms/ConfigCarrier.astro'
 
 interface Props {
   title?: string

@@ -1,7 +1,7 @@
 ---
 import path from 'node:path'
-import PostMetadata from '@components/PostMeta.astro'
-import ImageWrapper from '@components/misc/ImageWrapper.astro'
+import PostMetadata from '@components/molecules/PostMeta.astro'
+import ImageWrapper from '@components/atoms/ImageWrapper.astro'
 import { Icon } from 'astro-icon/components'
 import { i18n } from '@i18n/translation'
 import I18nKey from '@i18n/i18nKey'
@@ -13,11 +13,11 @@ interface Props {
   title: string
   url: string
   published: Date
-  tags: string[]
-  category: string
-  image: string
-  description: string
-  draft: boolean
+  tags?: string[]
+  category?: string
+  image?: string
+  description?: string
+  draft?: boolean
   style: string
 }
 const {
