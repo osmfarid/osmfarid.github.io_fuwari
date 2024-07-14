@@ -1,4 +1,5 @@
 ---
+/* global ImageMetadata:readonly */
 import path from 'path'
 import { getCollection, type CollectionEntry } from 'astro:content'
 import License from '@components/molecules/License.astro'
@@ -14,7 +15,7 @@ import { profileConfig } from '@/config'
 import { formatDateToFancy } from '@/utils/date-utils'
 import Giscus from '@components/organisms/Giscus.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import type { GetStaticPaths, Page } from 'astro'
+import type { GetStaticPaths } from 'astro'
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -64,6 +65,7 @@ if(entry.data.image){
 ---
 
 <BaseLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description}>
+    {/* eslint-disable-next-line astro/no-set-html-directive */}
     <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
         <div id="post-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full ",

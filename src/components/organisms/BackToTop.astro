@@ -38,13 +38,13 @@ import { Icon } from 'astro-icon/components'
 
 </style>
 
-<script is:inline is:raw>
-function backToTop() {
-    window.scroll({ top: 0, behavior: 'smooth' });
-}
+<script is:inline>
+// function backToTop() {
+//     window.scroll({ top: 0, behavior: 'smooth' });
+// }
 
 function scrollFunction() {
-    let btn = document.getElementById('back-to-top-btn');
+    const btn = document.getElementById('back-to-top-btn');
     if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
         btn.classList.remove('hide')
     } else {
