@@ -5,7 +5,7 @@ module.exports = {
         es2022: true,
         browser: true,
     },
-    extends: ['eslint:recommended', 'plugin:astro/recommended'],
+    extends: ['eslint:recommended', 'plugin:astro/recommended', "plugin:svelte/recommended"],
     parserOptions: {
         tsconfigRootDir: __dirname,
         ecmaVersion: 'latest',
@@ -13,6 +13,12 @@ module.exports = {
     },
     rules: {
         'no-mixed-spaces-and-tabs': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
+        ],
+        'no-unused-vars': 'off',
     },
     // settings: {
     //     react: {
@@ -54,6 +60,13 @@ module.exports = {
                 extraFileExtensions: ['.astro'],
             },
             rules: {},
+        },
+        {
+            files: ['*.svelte'],
+            parser: 'svelte-eslint-parser',
+            parserOptions: {
+                parser: '@typescript-eslint/parser'
+            },
         },
         {
             files: ['*.ts'],

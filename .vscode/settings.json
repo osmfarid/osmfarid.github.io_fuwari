@@ -18,6 +18,7 @@
     "javascript",
     "javascriptreact",
     "astro", // Enable .astro
+    "svelte",
     "typescript", // Enable .ts
     "typescriptreact" // Enable .tsx
   ]

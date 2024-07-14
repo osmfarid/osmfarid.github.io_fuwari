@@ -65,6 +65,7 @@
     "@typescript-eslint/parser": "^7.16.0",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^1.2.3",
+    "eslint-plugin-svelte": "^2.42.0",
     "stylus": "^0.63.0"
   },
   "pnpm": {
