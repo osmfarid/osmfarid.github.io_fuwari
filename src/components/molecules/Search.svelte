@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { url } from "@utils/url-utils.ts";
+  // import { url } from "@utils/url-utils.ts";
 
   interface SearchResult {
     url: string;
@@ -15,7 +15,7 @@
   let keywordMobile = "";
   let result: SearchResult[] = [];
 
-  let search = (keyword: string, isDesktop: boolean) => {};
+  let search = (_keyword: string, _isDesktop: boolean) => {};
 
   onMount(() => {
     search = async (keyword: string, isDesktop: boolean) => {
@@ -117,6 +117,7 @@ top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2"
         {item.meta.title}<slot name="arrow-icon"></slot>
       </div>
       <div class="transition text-sm text-50">
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         {@html item.excerpt}
       </div>
       <!-- {#if item.meta?.image}

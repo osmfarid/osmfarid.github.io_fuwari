@@ -19,7 +19,7 @@
     );
     const changeThemeWhenSchemeChanged: Parameters<
       typeof darkModePreference.addEventListener<"change">
-    >[1] = (e) => {
+    >[1] = (_e) => {
       applyThemeToDocument(mode);
     };
     darkModePreference.addEventListener("change", changeThemeWhenSchemeChanged);

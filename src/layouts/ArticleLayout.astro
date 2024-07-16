@@ -1,5 +1,5 @@
 ---
-import Markdown from '@components/misc/Markdown.astro'
+import Markdown from '@components/organisms/Markdown.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
 
 interface Props {
@@ -9,10 +9,6 @@ interface Props {
 }
 
 let { title, description } = Astro.props
-
-// const aboutPost = await getEntry('spec', 'about')
-
-// const { Content } = await aboutPost.render()
 ---
 <BaseLayout title={title} description={description}>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">

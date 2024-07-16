@@ -8,9 +8,9 @@ import { url } from '@utils/url-utils'
 interface Props {
   class?: string
   published: Date
-  tags: string[]
-  category: string,
-  draft: boolean,
+  tags?: string[]
+  category?: string,
+  draft?: boolean,
   hideTagsForMobile?: boolean
 }
 const { published, tags, category, draft, hideTagsForMobile = true } = Astro.props

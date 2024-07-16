@@ -1,10 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-import DisplaySettings from '@components/widget/DisplaySettings.svelte'
-import NavMenuPanel from '@components/widget/NavMenuPanel.astro'
-import ThemeSwitcher from '@components/base/header/ThemeSwitcher.svelte'
-import Search from '@components/base/header/Search.svelte'
+import DisplaySettings from '@components/molecules/DisplaySettings.svelte'
+import NavMenuPanel from '@components/molecules/NavMenuPanel.astro'
+import ThemeSwitcher from '@components/molecules/ThemeSwitcher.svelte'
+import Search from '@components/molecules/Search.svelte'
 import { LinkPreset, type NavBarLink } from '@/types/config'
 import { navBarConfig, siteConfig } from '@/config'
 import { LinkPresets } from '@constants/link-presets'
@@ -19,7 +19,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
   },
 )
 ---
-<div id="top-row" class="col-span-full z-50 onload-animation">
+<header id="top-row" class="col-span-full z-50 onload-animation">
     <!-- used for onload animation -->
     <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> 
     <div class="card-base overflow-visible h-14 md:h-16 rounded-t-none mx-auto px-4 grid grid-cols-2 lg:grid-cols-[17.5rem_auto_17.5rem]  items-center">
