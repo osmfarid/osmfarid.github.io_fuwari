@@ -66,9 +66,7 @@ const className = Astro.props.class;
 
 <!-- Styles for copy-code-button -->
 <style lang="css" is:global>
-    @tailwind base;
     @tailwind components;
-    @tailwind utilities;
 
     @layer components {
         .btn-regular-dark {
@@ -470,7 +468,7 @@ const className = Astro.props.class;
     100%
       opacity: 0.15
 
-  .card-github, .gc-description, .gc-titlebar, .gc-stars, .gc-forks, .gc-license, .gc-avatar, github-logo
+  .card-github, .gc-description, .gc-titlebar, .gc-stars, .gc-forks, .gc-license, .gc-avatar, .github-logo
     transition-property: all
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
     transition-duration: 0.15s
@@ -478,9 +476,7 @@ const className = Astro.props.class;
 </style>
 
 <style lang="css" is:global>
-    @tailwind base;
     @tailwind components;
-    @tailwind utilities;
 
     @layer components {
         .custom-md h1 {
