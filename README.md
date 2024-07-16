@@ -1,6 +1,6 @@
-# [osmfarid.github.io](https://github.com/osmfarid/osmfarid.github.io)
+# [osmfarid.github.io](https://osmfarid.github.io/)
 
-The [osmfarid.github.io](https://github.com/osmfarid/osmfarid.github.io) blog built with [Astro](https://astro.build), using modified [saicaca/fuwari](https://github.com/saicaca/fuwari) template.
+The [osmfarid.github.io](https://osmfarid.github.io/) blog built with [Astro](https://astro.build), using modified [saicaca/fuwari](https://github.com/saicaca/fuwari) template.
 
 ## Commands
 
